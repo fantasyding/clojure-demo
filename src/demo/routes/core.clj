@@ -1,8 +1,8 @@
-(ns demo.routes
+(ns routes.core
   (use [compojure.core]
        [compojure.route]
        [ring.util.response :only [response]]
-       [demo.db]))
+       [db.core]))
 
 ;;定义路由
 (defroutes app-routes

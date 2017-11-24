@@ -12,11 +12,14 @@
                  [log4j "1.2.15" :exclusions [javax.mail/mail
                                               javax.jms/jms
                                               com.sun.jdmk/jmxtools
-                                              com.sun.jmx/jmxri]]]
+                                              com.sun.jmx/jmxri]]
+                 [cprop "0.1.11"]]
   :plugins [[lein-ring "0.12.1"]]
   :ring {:handler        demo.core/app
          :auto-reload?  true
          :auto-refresh? true}
-  :main ^:skip-aot demo.core
+  :main ^:skip-aot app.core
+  :source-paths ["src/demo"]
+  :resource-paths ["resources"]
   :target-path "target/%s"
   :profiles {:uberjar {:aot :all}})

@@ -1,11 +1,12 @@
-(ns demo.core
+(ns app.core
   (:gen-class)
   (:require [ring.adapter.jetty :as jetty]
             [ring.middleware.params :as params]
             [ring.middleware.keyword-params :as keyword-params]
             [ring.middleware.json :as json]
             [ring.middleware.stacktrace :as stacktrace])
-  (:use demo.routes))
+  (:use routes.core
+        config.core))
 
 (def app
   (-> app-routes
@@ -16,7 +17,8 @@
       params/wrap-params))
 
 (defn start-server []
-  (jetty/run-jetty app {:host "0.0.0.0" :port 9000}))
+  (jetty/run-jetty app {:host (-> config :server :host)
+                        :port (-> config :server :port)}))
 
 (defn -main
   [& args]
