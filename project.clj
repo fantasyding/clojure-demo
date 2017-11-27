@@ -9,6 +9,7 @@
                  [ring/ring-json "0.5.0-beta1"]
                  [mysql/mysql-connector-java "5.1.6"]
                  [korma "0.4.3"]
+                 [org.clojure/tools.logging "0.4.0"]
                  [log4j "1.2.15" :exclusions [javax.mail/mail
                                               javax.jms/jms
                                               com.sun.jdmk/jmxtools

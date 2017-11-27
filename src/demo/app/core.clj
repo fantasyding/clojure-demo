@@ -6,7 +6,8 @@
             [ring.middleware.json :as json]
             [ring.middleware.stacktrace :as stacktrace])
   (:use routes.core
-        config.core))
+        config.core)
+  (:import (org.apache.log4j BasicConfigurator)))
 
 (def app
   (-> app-routes
@@ -17,6 +18,7 @@
       params/wrap-params))
 
 (defn start-server []
+  (BasicConfigurator/configure)
   (jetty/run-jetty app {:host (-> config :server :host)
                         :port (-> config :server :port)}))
 
