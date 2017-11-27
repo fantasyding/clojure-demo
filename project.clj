@@ -15,7 +15,7 @@
                                               com.sun.jmx/jmxri]]
                  [cprop "0.1.11"]]
   :plugins [[lein-ring "0.12.1"]]
-  :ring {:handler        demo.core/app
+  :ring {:handler        app.core/app
          :auto-reload?  true
          :auto-refresh? true}
   :main ^:skip-aot app.core

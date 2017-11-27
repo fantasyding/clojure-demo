@@ -4,7 +4,7 @@
               }
  :datasource {
               :url      "localhost"
-              :db       "coincard"
+              :db       "db0"
               :user     "root"
               :password "root"
               }
