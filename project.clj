@@ -15,7 +15,8 @@
                                               com.sun.jdmk/jmxtools
                                               com.sun.jmx/jmxri]]
                  [cprop "0.1.11"]]
-  :plugins [[lein-ring "0.12.1"]]
+  :plugins [[lein-ring "0.12.1"]
+            [lein-cljfmt "0.5.7"]]
   :ring {:handler        app.core/app
          :auto-reload?  true
          :auto-refresh? true}

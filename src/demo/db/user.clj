@@ -23,14 +23,12 @@
          pageNo        :pageNo
          pageSize      :pageSize} params]
     (-> (cond-> select-users
-                (not (empty? username)) (where {:username username})
-                (not (empty? service_name)) (where {:service_name service_name})
-                (not (empty? service_phone)) (where {:service_phone service_phone})
-                (not (empty? status)) (where {:status status})
-                (not (empty? pageSize)) (limit (Integer/parseInt pageSize))
-                (not (empty? pageNo)) (offset (* (Integer/parseInt pageSize) (- (Integer/parseInt pageNo) 1)))
-                ) (select))
-    ))
+          (not (empty? username)) (where {:username username})
+          (not (empty? service_name)) (where {:service_name service_name})
+          (not (empty? service_phone)) (where {:service_phone service_phone})
+          (not (empty? status)) (where {:status status})
+          (not (empty? pageSize)) (limit (Integer/parseInt pageSize))
+          (not (empty? pageNo)) (offset (* (Integer/parseInt pageSize) (- (Integer/parseInt pageNo) 1)))) (select))))
 
 (defn get-by-id
   "query user by id"
@@ -66,11 +64,8 @@
       (korma.core/update users (set-fields user) (where {:id id}))
       (catch Exception e
         (log/error e "update user error")
-        (throw (IllegalStateException. "update user error"))
-        ))
-    )
-  (get-by-id id)
-  )
+        (throw (IllegalStateException. "update user error")))))
+  (get-by-id id))
 
 (defn delete-by-id
   "delete user by id"
